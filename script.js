@@ -3,232 +3,87 @@ let cart = [];
 let activeSection = "home";
 let isMenuOpen = false;
 
-// Animation Variables
-let scrollIntervals = {};
-
-// Menu Items Data - Extended for better animation
+// Menu Items Data
 const menuItems = [
   // Minuman - Coffee
   {
     name: "ES KOPI LINGGA",
-    description: "Rich espresso with steamed milk foam",
     price: "Rp18.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/1.jpg",
+    image: "./img/ekl.jpg",
   },
   {
     name: "BUTTERSCOTH",
-    description: "Pure, concentrated coffee shot",
     price: "Rp12.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/2.jpg",
+    image: "./img/bs.jpg",
   },
   {
     name: "MOCATELLA",
-    description: "Espresso with a dollop of foam",
+    price: "Rp16.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/1.jpg",
+    image: "./img/moca.jpg",
   },
   {
     name: "KIWI BLACK",
-    description: "Smooth espresso with steamed milk",
+    price: "Rp20.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/2.jpg",
+    image: "./img/kiwi.jpg",
   },
   {
     name: "LEMONADE COFFEE",
-    description: "Diluted espresso with hot water",
+    price: "Rp16.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/1.jpg",
+    image: "./img/lc.jpg",
   },
   {
     name: "RED BERRY",
-    description: "Espresso with chocolate and steamed milk",
+    price: "Rp20.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/2.jpg",
+    image: "./img/rb.jpg",
   },
   // Minuman - Non Coffee
   {
     name: "Matcha Latte",
-    description: "Japanese green tea with milk",
+    price: "Rp22.000",
     category: "Minuman",
     subcategory: "Non Coffee",
-    image: "./img/2.jpg",
   },
   {
-    name: "Hot Chocolate",
-    description: "Rich hot chocolate drink",
+    name: "Chocolate",
+    price: "Rp18.000",
     category: "Minuman",
     subcategory: "Non Coffee",
-    image: "./img/2.jpg",
   },
   {
     name: "Lemon Tea",
-    description: "Fresh lemon tea",
+    price: "Rp15.000",
     category: "Minuman",
     subcategory: "Non Coffee",
-    image: "./img/2.jpg",
-  },
-  {
-    name: "Earl Grey Tea",
-    description: "Classic Earl Grey black tea",
-    category: "Minuman",
-    subcategory: "Non Coffee",
-    image: "./img/1.jpg",
-  },
-  {
-    name: "Chai Latte",
-    description: "Spiced tea with steamed milk",
-    category: "Minuman",
-    subcategory: "Non Coffee",
-    image: "./img/2.jpg",
-  },
-  {
-    name: "Fresh Orange Juice",
-    description: "Freshly squeezed orange juice",
-    category: "Minuman",
-    subcategory: "Non Coffee",
-    image: "./img/1.jpg",
   },
   // Makanan
   {
     name: "Croissant",
-    description: "Buttery flaky French pastry",
+    price: "Rp15.000",
     category: "Makanan",
-    image: "./img/2.jpg",
   },
   {
     name: "Banana Bread",
-    description: "Moist banana bread with nuts",
+    price: "Rp14.000",
     category: "Makanan",
-    image: "./img/2.jpg",
   },
   {
-    name: "Club Sandwich",
-    description: "Fresh sandwich with vegetables and meat",
+    name: "Sandwich",
+    price: "Rp22.000",
     category: "Makanan",
-    image: "./img/2.jpg",
-  },
-  {
-    name: "Blueberry Muffin",
-    description: "Fresh baked muffin with blueberries",
-    category: "Makanan",
-    image: "./img/1.jpg",
-  },
-  {
-    name: "Avocado Toast",
-    description: "Toasted bread with fresh avocado",
-    category: "Makanan",
-    image: "./img/2.jpg",
-  },
-  {
-    name: "Chocolate Cake",
-    description: "Rich chocolate cake slice",
-    category: "Makanan",
-    image: "./img/1.jpg",
   },
 ];
-
-// Animation Functions
-function startAutoScroll(containerId) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  // Stop any existing animation for this container
-  stopAutoScroll(containerId);
-
-  scrollIntervals[containerId] = setInterval(() => {
-    const scrollAmount = 1; // Pixels per frame
-    const itemWidth = container.querySelector(".menu-item")?.offsetWidth || 270;
-    const gap = 20; // Gap between items
-    const singleSetWidth = itemWidth + gap;
-
-    // Get original items count
-    const originalItemsCount = getOriginalItemsCount(containerId);
-    const resetPoint = singleSetWidth * originalItemsCount;
-
-    if (container.scrollLeft >= resetPoint) {
-      // Seamlessly reset to beginning of second set
-      container.scrollLeft = 0;
-    } else {
-      container.scrollLeft += scrollAmount;
-    }
-  }, 20); // 50fps animation
-}
-
-function getOriginalItemsCount(containerId) {
-  const container = document.getElementById(containerId);
-  if (!container) return 0;
-
-  // Count items based on container type
-  if (containerId === "coffee-menu") {
-    return menuItems.filter(
-      (item) => item.category === "Minuman" && item.subcategory === "Coffee"
-    ).length;
-  } else if (containerId === "non-coffee-menu") {
-    return menuItems.filter(
-      (item) => item.category === "Minuman" && item.subcategory === "Non Coffee"
-    ).length;
-  } else if (containerId === "food-menu") {
-    return menuItems.filter((item) => item.category === "Makanan").length;
-  }
-  return 0;
-}
-
-function stopAutoScroll(containerId) {
-  if (scrollIntervals[containerId]) {
-    clearInterval(scrollIntervals[containerId]);
-    delete scrollIntervals[containerId];
-  }
-}
-
-function pauseAutoScroll(containerId) {
-  stopAutoScroll(containerId);
-}
-
-function resumeAutoScroll(containerId) {
-  startAutoScroll(containerId);
-}
-
-function initMenuAnimations() {
-  const menuContainers = ["coffee-menu", "non-coffee-menu", "food-menu"];
-
-  menuContainers.forEach((containerId) => {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    // Start auto scroll
-    startAutoScroll(containerId);
-
-    // Pause on hover
-    container.addEventListener("mouseenter", () => {
-      pauseAutoScroll(containerId);
-    });
-
-    // Resume on mouse leave
-    container.addEventListener("mouseleave", () => {
-      resumeAutoScroll(containerId);
-    });
-
-    // Pause on touch start (mobile)
-    container.addEventListener("touchstart", () => {
-      pauseAutoScroll(containerId);
-    });
-
-    // Resume after touch end with delay (mobile)
-    container.addEventListener("touchend", () => {
-      setTimeout(() => {
-        resumeAutoScroll(containerId);
-      }, 2000); // Resume after 2 seconds
-    });
-  });
-}
 
 // Utility Functions
 function getPriceNumber(priceStr) {
@@ -371,15 +226,6 @@ function printReceipt() {
   alert(receipt);
 }
 
-// Helper function to duplicate menu items for smooth scrolling
-function duplicateMenuItems(items, multiplier = 3) {
-  const duplicated = [];
-  for (let i = 0; i < multiplier; i++) {
-    duplicated.push(...items);
-  }
-  return duplicated;
-}
-
 // Render Menu Items
 function renderMenuItems() {
   // Coffee items
@@ -387,79 +233,39 @@ function renderMenuItems() {
   const coffeeItems = menuItems.filter(
     (item) => item.category === "Minuman" && item.subcategory === "Coffee"
   );
+  const infiniteCoffeeItems = [...coffeeItems, ...coffeeItems];
 
-  // Duplicate items for smooth infinite scroll
-  const duplicatedCoffeeItems = duplicateMenuItems(coffeeItems, 4);
-
-  coffeeMenu.innerHTML = duplicatedCoffeeItems
+  coffeeMenu.innerHTML = infiniteCoffeeItems
     .map(
       (item, index) => `
       <div class="menu-item" data-original-index="${
         index % coffeeItems.length
       }">
-          <div class="menu-item-image">
-            ${
-              item.image
-                ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">`
-                : "☕"
-            }
-          </div>
-          <h3 class="menu-item-name">${item.name}</h3>
-          <p class="menu-item-description">${item.description}</p>
-          <div class="menu-item-footer">
-              <!-- Harga dihapus -->
-          </div>
+        <div class="menu-item-image">
+          ${
+            item.image
+              ? `<img src="${item.image}" alt="${item.name}" loading="lazy">`
+              : `<div style="width:100%;height:100%;background:#8B4513;border-radius:32px;display:flex;align-items:center;justify-content:center;color:white;font-size:48px;">☕</div>`
+          }
+        </div>
+        <h3 class="menu-item-name">${item.name}</h3>
       </div>
-  `
+    `
     )
     .join("");
 
-  // Non-coffee and Food items as 2-column carded list
+  // Non Coffee & Makanan in one card as list
   const nonCoffeeMenu = document.getElementById("non-coffee-menu");
-  const foodMenu = document.getElementById("food-menu");
-  const nonCoffeeItems = menuItems.filter(
-    (item) => item.category === "Minuman" && item.subcategory === "Non Coffee"
-  );
-  const foodItems = menuItems.filter((item) => item.category === "Makanan");
-
-  // Gabungkan dalam satu card dua kolom
-  const menuListCard = `
-  <div class="menu-list-card">
-    <div class="menu-list-col">
-      <h4 class="menu-list-title">Minuman Non-Coffee</h4>
-      <ul class="menu-list">
-        ${nonCoffeeItems
-          .map(
-            (item) => `
-          <li class="menu-list-item">
-            <span class="menu-item-name">${item.name}</span>
-            <span class="menu-item-description">${item.description}</span>
-          </li>
-        `
-          )
-          .join("")}
-      </ul>
-    </div>
-    <div class="menu-list-col">
-      <h4 class="menu-list-title">Makanan</h4>
-      <ul class="menu-list">
-        ${foodItems
-          .map(
-            (item) => `
-          <li class="menu-list-item">
-            <span class="menu-item-name">${item.name}</span>
-            <span class="menu-item-description">${item.description}</span>
-          </li>
-        `
-          )
-          .join("")}
-      </ul>
-    </div>
+  nonCoffeeMenu.innerHTML = `
+  <div class="menu-item menu-item-list" style="justify-content:center;align-items:center;min-height:unset;">
+    <a href="https://drive.google.com/file/d/182RcGG46QSnt-v8Ms8cv95KqJRNDTjkR/view" target="_blank" rel="noopener" class="menu-link-btn">
+      Lihat Menu Lengkap Lainnya
+    </a>
   </div>
 `;
 
-  // Tampilkan card pada salah satu container, kosongkan yang lain
-  nonCoffeeMenu.innerHTML = menuListCard;
+  // Kosongkan foodMenu agar tidak double
+  const foodMenu = document.getElementById("food-menu");
   foodMenu.innerHTML = "";
 }
 
@@ -500,11 +306,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Render menu items
   renderMenuItems();
   updateCartDisplay();
-
-  // Initialize menu animations
-  setTimeout(() => {
-    initMenuAnimations();
-  }, 100); // Small delay to ensure DOM is fully rendered
 
   // Mobile menu toggle
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
@@ -560,12 +361,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   newsletterForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    const email = document.getElementById("email-input").value;
-    const subject = encodeURIComponent(
-      "Newsletter Subscription Dlingga Coffee"
-    );
-    const body = encodeURIComponent("Email subscriber: " + email);
-    window.location.href = `mailto:agungfirdaus@gmail.com?subject=${subject}&body=${body}`;
+    alert("Thank you for subscribing to our newsletter!");
+    emailInput.value = "";
   });
 
   // Scroll event listener
@@ -598,18 +395,47 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Handle page visibility change
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) {
-      // Pause all animations when page is not visible
-      Object.keys(scrollIntervals).forEach((containerId) => {
-        stopAutoScroll(containerId);
-      });
-    } else {
-      // Resume animations when page becomes visible
-      setTimeout(() => {
-        initMenuAnimations();
-      }, 100);
+  // Testimonial Carousel
+  const carousel = document.getElementById("testimonial-carousel");
+  const prevBtn = document.getElementById("testimonial-prev");
+  const nextBtn = document.getElementById("testimonial-next");
+  const currentEl = document.getElementById("testimonial-current");
+  const totalEl = document.getElementById("testimonial-total");
+
+  if (carousel && prevBtn && nextBtn && currentEl && totalEl) {
+    const cards = carousel.querySelectorAll(".testimonial-card");
+    let current = 0;
+    const total = cards.length;
+    totalEl.textContent = total;
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${current * 100}%)`;
+      currentEl.textContent = current + 1;
     }
-  });
+
+    prevBtn.addEventListener("click", function () {
+      current = (current - 1 + total) % total;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", function () {
+      current = (current + 1) % total;
+      updateCarousel();
+    });
+
+    // Optional: swipe support for mobile
+    let startX = null;
+    carousel.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+    carousel.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) prevBtn.click();
+      else if (startX - endX > 50) nextBtn.click();
+      startX = null;
+    });
+
+    updateCarousel();
+  }
 });
