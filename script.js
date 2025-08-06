@@ -11,14 +11,14 @@ const menuItems = [
     price: "Rp18.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/ekl.jpg",
+    image: "./img/ice.png",
   },
   {
     name: "BUTTERSCOTH",
     price: "Rp12.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/bs.jpg",
+    image: "./img/butter.png",
   },
   {
     name: "MOCATELLA",
