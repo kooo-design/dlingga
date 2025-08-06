@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dlingga Coffee - Premium Coffee Experience</title>
+    <link rel="icon" type="image/png" href="./img/lingga.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Dumondi:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
       rel="stylesheet"
@@ -14,7 +15,7 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
-        <div class="nav-logo">Dlingga Coffee</div>
+        <div class="nav-logo">D'lingga Coffee</div>
 
         <!-- Desktop Menu -->
         <div class="nav-menu desktop-menu">
@@ -24,9 +25,14 @@
           <button class="nav-link" data-target="features">Features</button>
         </div>
 
-        <button class="nav-cta desktop-menu" data-target="menu">
+        <a
+          class="nav-cta desktop-menu"
+          href="https://google.com"
+          target="_blank"
+          rel="noopener"
+        >
           Reservasi
-        </button>
+        </a>
 
         <!-- Mobile Menu Button -->
         <button class="mobile-menu-btn">
@@ -48,24 +54,13 @@
     <section id="home" class="hero">
       <div class="hero-container">
         <div class="hero-content">
-          <p class="hero-subtitle">Wake up and smell the amazing taste</p>
-          <h1 class="hero-title">Coffee</h1>
+          <p class="hero-subtitle">Nikmati Aroma Kopi yang Menggoda</p>
+          <h1 class="hero-title">Lingga</h1>
           <p class="hero-description">
-            A good cup of coffee is the foundation of an amazing morning. Let
-            our expert baristas craft the perfect cup for you.
+            Secangkir kopi yang nikmat adalah kunci pagi yang luar biasa.
+            Biarkan barista kami meracikkan cangkir sempurna khusus untuk Anda.
           </p>
-          <button class="hero-btn" data-target="menu">Explore More</button>
-        </div>
-
-        <div class="hero-visual">
-          <div class="coffee-circle">
-            <div class="coffee-inner">
-              <div class="coffee-cup">
-                <div class="coffee-highlight"></div>
-              </div>
-            </div>
-          </div>
-          <div class="hero-heart">❤️</div>
+          <!-- <button class="hero-btn" data-target="menu">Explore More</button> -->
         </div>
       </div>
     </section>
@@ -74,7 +69,11 @@
     <section id="about" class="about">
       <div class="about-container">
         <div class="about-visual">
-          <div class="about-coffee-icon">☕</div>
+          <img
+            class="about-coffee-image"
+            src="./img/about.jpg"
+            alt="Tentang Dlingga Coffee"
+          />
         </div>
 
         <div class="about-content">
@@ -82,9 +81,9 @@
           <p class="about-text">
             Tempat bereskplorasi rasa. Bentuk rasa tidak selalu dari cita rasa
             produk kami, tetapi bagaimana kamu menemukan momen, kehangatan,
-            inspirasi, dan berbagai pengalaman dengan orang tersayang.
+            inspirasi, dan berbagai pengalaman dengan orang tersayang.
           </p>
-          <a class="about-btn" href="about.html">Baca Selengkapnya</a>
+          <a class="about-btn" href="about.html">Selengkapnya</a>
         </div>
       </div>
     </section>
@@ -93,10 +92,11 @@
     <section id="menu" class="menu">
       <div class="menu-container">
         <div class="menu-header">
-          <h2 class="menu-title">Enjoy a new blend of coffee style</h2>
+          <h2 class="menu-title">Nikmati Secangkir Kopi</h2>
           <p class="menu-subtitle">
-            Explore our signature coffee and food collection, each carefully
-            crafted to deliver a unique and memorable experience
+            Jelajahi koleksi kopi dan makanan signature kami, yang diracik
+            dengan penuh ketelitian untuk menghadirkan pengalaman unik dan tak
+            terlupakan.
           </p>
         </div>
 
@@ -104,55 +104,72 @@
         <h3 class="category-title">Signature Lingga</h3>
 
         <!-- Coffee -->
-        <!-- <h4 class="subcategory-title">Coffee</h4> -->
-        <div class="menu-grid" id="coffee-menu"></div>
+        <div class="coffee-scroll-wrapper">
+          <div class="menu-grid" id="coffee-menu"></div>
+        </div>
 
         <!-- Non Coffee -->
-        <h4 class="subcategory-title">Menu Lainnya</h4>
-        <div class="menu-grid" id="non-coffee-menu"></div>
+        <h3 class="category-title">Menu Lainnya</h3>
+        <div
+          id="non-coffee-menu"
+          style="text-align: center; margin-bottom: 32px"
+        >
+          <a
+            href="https://drive.google.com/file/d/182RcGG46QSnt-v8Ms8cv95KqJRNDTjkR/view"
+            target="_blank"
+            rel="noopener"
+            class="menu-link-btn"
+          >
+            Lihat Menu Lengkap Lainnya
+          </a>
+        </div>
 
         <!-- Makanan -->
-        
+        <div class="menu-grid" id="food-menu"></div>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
       <div class="features-container">
         <div class="features-header">
-          <h2 class="features-title">Why are we different?</h2>
+          <h2 class="features-title">Temukan Momenmu di Sini!</h2>
           <p class="features-subtitle">
-            We stand out from the competition with our commitment to quality,
-            sustainability, and exceptional customer experience
+            Hangatnya suasana Lingga menghadirkan momen dan ceritamu. Karena tiap kehangatan yang tidak pernah basi selalu tercipta sebuah momen manis di sudut ruang kedai ini. Tiap keberagaman aktivitas yang dilakukan, selalu meromantisasi obrolan, cerita dan kenangan seperti asap kopi yang menari.
           </p>
         </div>
 
         <div class="features-grid">
           <div class="feature-item">
-            <div class="feature-icon">❤️</div>
-            <h3 class="feature-title">Supreme Beans</h3>
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4C10 4 4 10 4 16C4 22 10 28 16 28C22 28 28 22 28 16C28 10 22 4 16 4ZM16 26C11 26 6 21 6 16C6 11 11 6 16 6V26Z" fill="currentColor"/>
+              </svg>
+            </div></svg>
+            <h3 class="feature-title">Biji Kopi Terbaik</h3>
             <p class="feature-description">
               Premium quality coffee beans sourced globally
             </p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🏆</div>
-            <h3 class="feature-title">High Quality</h3>
+            <h3 class="feature-title">Kualitas Tinggi</h3>
             <p class="feature-description">
-              Expertly roasted for perfect flavor profiles
+              Dipanggang dengan presisi untuk menghasilkan cita rasa sempurna.
             </p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">⭐</div>
-            <h3 class="feature-title">Extraordinary</h3>
+            <h3 class="feature-title">Pemandangan</h3>
             <p class="feature-description">
-              Unique blends crafted by master roasters
+              Memperlihatkan pemandangan yang indah dan suasana yang nyaman.
             </p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">💰</div>
-            <h3 class="feature-title">Affordable Price</h3>
+            <h3 class="feature-title">Harga Terjangkau</h3>
             <p class="feature-description">
-              Premium coffee at reasonable prices
+              Kopi premium dengan harga yang bersahabat.
             </p>
           </div>
         </div>
@@ -162,12 +179,20 @@
     <!-- CTA Section -->
     <section class="cta">
       <div class="cta-container">
-        <h2 class="cta-title">Get a chance to have an amazing morning</h2>
+        <h2 class="cta-title">Rasakan Hari yang Luar Biasa</h2>
         <p class="cta-subtitle">
-          Join thousands of coffee lovers who start their day with our premium
-          blends. Experience the difference that quality makes.
+          Bergabunglah dengan ribuan pecinta kopi yang memulai hari mereka
+          dengan aroma harum dan rasa kaya dari racikan premium kami. Setiap
+          tegukan menghadirkan energi dan kenikmatan yang tak tertandingi.
         </p>
-        <button class="cta-btn" data-target="menu">Order Now</button>
+        <a
+          class="hero-btn"
+          href="https://google.com"
+          target="_blank"
+          rel="noopener"
+        >
+          Reservasi
+        </a>
       </div>
     </section>
 
@@ -175,8 +200,10 @@
     <section class="testimonial">
       <div class="testimonial-container">
         <div class="testimonial-header">
-          <h2 class="testimonial-title">Our coffee perfection feedback</h2>
-          <p class="testimonial-subtitle">What our customers say about us</p>
+          <h2 class="testimonial-title">Umpan Balik tentang Kopi Kami</h2>
+          <p class="testimonial-subtitle">
+            Inilah yang dikatakan pelanggan tentang kami.
+          </p>
         </div>
 
         <div class="testimonial-card">
@@ -188,19 +215,27 @@
             <span class="star">⭐</span>
           </div>
           <blockquote class="testimonial-quote">
-            "Saya benar-benar menikmati setiap cangkir kopi dari Dlingga Coffee. Aromanya yang begitu menggoda dan rasa yang kaya menciptakan pengalaman yang menyenangkan di setiap tegukan. Kopi ini memberikan kenyamanan sekaligus semangat, membuat saya merasa lebih fokus dan siap menjalani aktivitas. Sekarang, menikmati kopi dari Dlingga Coffee telah menjadi bagian yang tak terpisahkan dari rutinitas harian saya."
+            "D'lingga Coffee, salah satu Cafe terbaik nih, kedai ini tuh beda
+            vibes nya! Favorit banget Cappuccino pakai resep sendiri, creamy
+            manis tapi tetap smooth, bikin melek tapi hati tetap adem. Snack
+            nya? gakalah sih. Cireng rujaknya joss.. Tahu cabe garamnya juga
+            juara—mantap, pedesnya nampol, cocok banget buat nemenin ngopi
+            sore-sore sambil WFH tipis-tipis. Pokoknya, kalau lagi cari tempat
+            nongkrong yang santai tapi rasa tetap Juara, ini tempatnya. Udah
+            kayak rumah kedua, tapi ada kopi dan cemilan yang selalu
+            bikin balik lagi. "
           </blockquote>
           <div class="testimonial-author">
             <div class="author-avatar">👤</div>
             <div class="author-name">Husni Thamrin</div>
-            <div class="author-title">Penggemar Kopi</div>
+            <div class="author-title">Penikmat Kopi</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter">
+    <!-- <section class="newsletter">
       <div class="newsletter-container">
         <h2 class="newsletter-title">Subscribe to get the Latest News</h2>
         <p class="newsletter-subtitle">
@@ -217,7 +252,7 @@
           <button type="submit" class="newsletter-btn">Subscribe</button>
         </form>
       </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -226,30 +261,40 @@
           <div class="footer-section">
             <h3 class="footer-title">Dlingga Coffee</h3>
             <p class="footer-text">
-              Jl Umar Wirahadikusumah KM 25 - Sumedang (lantai 2, depan SPBU Darmaraja)
+              Jl Umar Wirahadikusumah KM 25 - Sumedang (lantai 2, depan SPBU
+              Darmaraja)
             </p>
             <p class="footer-text">Phone: +62 81527119272</p>
-            <!-- <p class="footer-text">Email: info@dlinggacoffee.com</p> -->
           </div>
 
           <div class="footer-section">
             <h3 class="footer-title">Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#menu">Menu</a></li>
-              <li><a href="#features">Features</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Features</a></li>
             </ul>
           </div>
 
           <div class="footer-section">
             <h3 class="footer-title">Follow Us</h3>
             <div class="social-links">
-                <a href="https://www.instagram.com/dlingga_coffee?igsh=MTVxMXZodmhoNzB6OA==" class="social-link" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
+              <div class="social-links">
+                <a
+                  href="https://www.instagram.com/dlingga_coffee?igsh=MTVxMXZodmhoNzB6OA=="
+                  class="social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
                 </a>
+              </div>
             </div>
           </div>
         </div>
