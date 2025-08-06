@@ -1122,6 +1122,23 @@ body {
 
   .about-container {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-visual {
+    height: 220px;
+    border-radius: 16px;
+    padding: 0;
+  }
+
+  .about-coffee-image {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 0;
+    display: block;
   }
 
   .menu-title,
