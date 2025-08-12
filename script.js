@@ -39,14 +39,14 @@ const menuItems = [
     price: "Rp16.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/lc.jpg",
+    image: "./img/lemonade.jpg",
   },
   {
     name: "RED BERRY",
     price: "Rp20.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/rb.jpg",
+    image: "./img/berry.jpg",
   },
   // Minuman - Non Coffee
   {
