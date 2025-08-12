@@ -14,7 +14,7 @@ const menuItems = [
     image: "./img/ice.png",
   },
   {
-    name: "BUTTERSCOTH",
+    name: "BUTTERSCOTCH",
     price: "Rp12.000",
     category: "Minuman",
     subcategory: "Coffee",
