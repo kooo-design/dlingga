@@ -25,7 +25,7 @@ const menuItems = [
     price: "Rp16.000",
     category: "Minuman",
     subcategory: "Coffee",
-    image: "./img/moca.jpg",
+    image: "./img/tella.jpg",
   },
   {
     name: "KIWI BLACK",
